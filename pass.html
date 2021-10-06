@@ -3,6 +3,12 @@
 
 <head>
     <title>Assignment-06</title>
+    <style>
+        form {
+            background-color:cyan;
+            border: solid crimson;
+        }
+    </style>
 </head>
 <h1>Pass phrase by Sindhu Amireddy</h1>
 
@@ -42,7 +48,9 @@
             } else {
                 wrong++
                 alert("Access denied")
-
+                if(wrong > 3) {
+                    alert("account locked");
+                }
 
             }
             out.innerHTML = "correct score : " + correct + " wrong score : " + wrong
