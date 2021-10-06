@@ -58,7 +58,7 @@
         function updateCar() {
             prop = document.getElementById("form_prop").value
             val = document.getElementById("form_value").value
-            out = document.getElementById("result")
+            out = document.getElementById("res")
             my_car[prop] = val
             my_car = JSON.stringify(my_car)
             out.innerHTML = my_car
