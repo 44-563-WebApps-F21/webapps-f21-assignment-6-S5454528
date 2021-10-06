@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Car Page</title>
+</head>
+
+<body>
+
+    <h2>Sindhu Amireddy orders a car</h2>
+
+    <form>
+
+        <input type="checkbox" id="electric" name="property1" class="form-check-input" value="electric">
+        <label for="electric" class="form-check-label">electric</label><br>
+
+
+        <input type="checkbox" id="ac" name="property2" class="form-check-input" value="ac">
+        <label for="ac" class="form-check-label">ac</label><br>
+
+
+        <input type="checkbox" id="gps" name="property3" class="form-check-input" value="gps">
+        <label for="gps" class="form-check-label">gps</label><br>
+        <br>
+        <input type="button" onclick="orderCar()" value="Order a Car">
+    </form>
+
+
+    <p id="result">This text will be replaced </p>
+    <form>
+
+        <label for="form_prop">Enter a property</label>
+        <input type="text" id="form_prop" name="form_prop" value="color"><br>
+        <br>
+        <label for="form_value">Enter a value</label>
+        <input type="text" id="form_value" name="form_value"> <br>
+        <br>
+        <input type="button" onclick="updateCar()" value="Update the car">
+
+    </form>
+    
+    <p id="res">properties text</p>
+    <script>
+        let my_car = {}
+        function orderCar() {
+            my_car = {}
+            first = document.getElementById("electric").checked
+            second = document.getElementById("ac").checked
+            third = document.getElementById("gps").checked
+            out = document.getElementById("result")
+            first ? my_car["electric"] = true : my_car["electric"] = false
+            second ? my_car["ac"] = true : my_car["ac"] = false
+            third ? my_car["gps"] = true : my_car["gps"] = false
+            my_car = JSON.stringify(my_car)
+            out.innerHTML = my_car
+            my_car = JSON.parse(my_car)
+        }
+        function updateCar() {
+            prop = document.getElementById("form_prop").value
+            val = document.getElementById("form_value").value
+            out = document.getElementById("result")
+            my_car[prop] = val
+            my_car = JSON.stringify(my_car)
+            out.innerHTML = my_car
+            my_car = JSON.parse(my_car)
+        }
+    </script>
+
+</body>
+
+</html>
